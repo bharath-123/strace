@@ -25,9 +25,9 @@ main(void)
 	printf("syslog(SYSLOG_ACTION_READ, %#lx, -1) = %d %s (%m)\n",
 	       addr, rc, errno2name());
 
-	rc = syscall(__NR_syslog, SYSLOG_ACTION_SIZE_BUFFER, NULL, 10);
-	printf("syslog(SYSLOG_ACTION_SIZE_BUFFER, NULL, 10) = %d\n",
-			               rc);
+	rc = syscall(__NR_syslog, SYSLOG_ACTION_SIZE_BUFFER, addr, 10);
+	printf("syslog(SYSLOG_ACTION_SIZE_BUFFER, %#lx, 10) = %d\n",
+			        addr, rc);
 
 	puts("+++ exited with 0 +++");
 	return 0;
